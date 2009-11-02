@@ -16,9 +16,9 @@ trait Sweet {
 
   private var tests = List[TestCase]()
 
-  def test(name: String)(f: () => Unit) {
+  def test(name: String)(f: => Unit) {
     if (tests.map(_.name).contains(name)) warn("duplicate test name: " + name)
-    tests = tests ::: List(TestCase(name, f))
+    tests = tests ::: List(TestCase(name, f _))
   }
 
   def warn(message: String) {println(message)}
