@@ -4,7 +4,6 @@ import org.scalatools.testing._
 
 class SweetRunner(val classLoader: ClassLoader, loggers: Array[Logger]) extends Runner {
   def run(testClassName: String, fingerprint: TestFingerprint, args: Array[String]): Array[Event] = {
-
     val testClass = Class.forName(testClassName, true, classLoader).asSubclass(classOf[Sweet])
     val sweet = testClass.newInstance
     val reporter = new MySweetReporter
@@ -24,6 +23,7 @@ class SweetRunner(val classLoader: ClassLoader, loggers: Array[Logger]) extends 
       r match {
         case Result.Skipped => logInfo("Test Skipped: " + tn)
         case Result.Failure => logError("Test Failed: " + tn)
+        case Result.Error =>   logError("Test Errored: " + tn)
         case Result.Success => logInfo("Test Passed: " + tn)
       }
       results = results ::: List(new org.scalatools.testing.Event {

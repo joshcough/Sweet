@@ -1,6 +1,6 @@
 package sweet
 
-trait Sweet {
+trait Sweet extends Assertions {
   case class TestCase(name: String, f: () => Unit) {
     def apply(reporter: SweetReporter) {
       try{
@@ -8,7 +8,7 @@ trait Sweet {
         f()
         reporter(TestSucceeded(name))
       }catch {
-        // add assertion errors here?
+        case t: SourAssertionException => reporter(TestFailed(name, t))
         case t: Throwable => reporter(TestErrored(name, t))
       }
     }
