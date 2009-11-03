@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="fb43fe68-390a-4b9b-bd05-3103b76469a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jsr166y.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/scala_2_7_6.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/sweet/SweetEvent.scala" afterPath="$PROJECT_DIR$/src/main/scala/sweet/SweetEvent.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/extra166y.jar" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="Sweet.iws" />
@@ -87,7 +84,7 @@
       <file leaf-file-name="SweetEvent.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/sweet/SweetEvent.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="267" selection-end="267" vertical-scroll-proportion="0.119959675">
+            <state line="5" column="89" selection-start="183" selection-end="183" vertical-scroll-proportion="0.085685484">
               <folding />
             </state>
           </provider>
@@ -166,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/scala/sweet/SweetEvent.scala" />
         <option value="$PROJECT_DIR$/project/build.properties" />
         <option value="$PROJECT_DIR$/src/main/scala/sweet/SweetFramework.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/sweet/SourAssertionException.scala" />
@@ -177,6 +173,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/sweet/Sweet.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/sweet/ConcurrentSweet.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/sweet/ParallelArray.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/sweet/SweetEvent.scala" />
       </list>
     </option>
   </component>
@@ -544,7 +541,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/sweet/SweetEvent.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="267" selection-end="267" vertical-scroll-proportion="0.119959675">
+        <state line="5" column="89" selection-start="183" selection-end="183" vertical-scroll-proportion="0.085685484">
           <folding />
         </state>
       </provider>
