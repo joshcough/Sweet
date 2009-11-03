@@ -4,7 +4,7 @@ trait Assertions {
 
   case class Equalizer(a:Any){
     def mustBe(b:Any){
-      if( ! a.equals(b) ) throw new SourAssertionException(a + " did not equal " + b)
+      if( ! a.equals(b) ) throw new SourAssertionException(a + " did not equal " + b + " but should have")
     }
 
     def mustNotBe(b:Any) {

@@ -1,6 +1,9 @@
 package sweet
 
 trait Sweet extends Assertions {
+
+  private[sweet] var tests = List[TestCase]()
+
   case class TestCase(name: String, f: () => Unit) {
     def apply(reporter: SweetReporter) {
       try{
@@ -14,14 +17,10 @@ trait Sweet extends Assertions {
     }
   }
 
-  private var tests = List[TestCase]()
-
   def test(name: String)(f: => Unit) {
-    if (tests.map(_.name).contains(name)) warn("duplicate test name: " + name)
+    if (tests.map(_.name).contains(name)) println("duplicate test name: " + name)
     tests = tests ::: List(TestCase(name, f _))
   }
-
-  def warn(message: String) {println(message)}
 
   def run(reporter: SweetReporter) {
     tests.foreach(_(reporter))
