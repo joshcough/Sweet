@@ -2,14 +2,14 @@ import sbt._
 
 class SweetProject(info: ProjectInfo) extends DefaultProject(info) with AutoCompilerPlugins {
 
+  override def managedStyle = ManagedStyle.Maven
+  val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots/"
+
+  Credentials(Path.userHome / ".ivy2" / ".credentials", log)
+
   override def testFrameworks = super.testFrameworks ++ List(new TestFramework("sweet.SweetFramework"))
 
-  /**
-  override def testClasspath = super.testClasspath +++ Path.fromFile(FileUtilities.sbtJar)
+  val snapshotsRepository = "Scala Tools Repository" at "http://scala-tools.org/repo-snapshots"  
+  val testInterfaces = "org.scala-tools.testing" % "test-interface" % "0.1"
 
-  val scalatestRepository = "Scala Tools Repository" at "http://scala-tools.org/repo-snapshots"  
-  val scalatest = "org.scalatest" % "scalatest" % "1.0-for-scala-2.8.0.20091009-SNAPSHOT" % "test->default"
-  val jfreechart = "jfree" % "jfreechart" % "1.0.13"
-  val jcommon = "jfree" % "jcommon" % "1.0.15"
-  **/
 }
