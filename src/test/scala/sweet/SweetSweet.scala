@@ -6,8 +6,6 @@ import org.testng.annotations.{DataProvider, Test}
 
 class SweetSweet extends Sweet with SweetTestNGAdapter {
 
-  println("hello")
-
   test("hello, world"){
     println("hello, world!")
   }
