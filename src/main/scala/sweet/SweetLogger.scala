@@ -5,14 +5,14 @@ package sweet
  * Date: Jun 25, 2009
  * Time: 9:33:15 AM
  */
-trait PrintlnLogger extends Logger {
+trait PrintlnSweetLogger extends SweetLogger {
   override def log(a: Any):Unit = {
     println(a)
     super.log(a)
   }
 }
 
-trait Logger {
+trait SweetLogger {
 
   def log(a: Any): Unit = {}
   var logLevel: LogLevel = nothing

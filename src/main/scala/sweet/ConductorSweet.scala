@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference
  * Time: 7:25:34 PM
  * @author Josh Cough
  */
-trait ConductorSweet extends Sweet with Logger{ thisSuite =>
+trait ConductorSweet extends Sweet with SweetLogger{ thisSuite =>
 
   private val conductor = new AtomicReference[Conductor]()
 

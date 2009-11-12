@@ -10,7 +10,7 @@ import scala.collection.JavaConversions._
  * Date: Jun 14, 2009
  * Time: 12:00 PM
  */
-class Conductor(logger:Logger){
+class Conductor(logger:SweetLogger){
 
   type Tick = Int
 

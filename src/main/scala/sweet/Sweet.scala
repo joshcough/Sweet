@@ -15,6 +15,7 @@ trait Sweet extends Assertions {
         case t: Throwable => reporter(TestErrored(name, t))
       }
     }
+    override def toString = name
   }
 
   def test(name: String)(f: => Unit) {
