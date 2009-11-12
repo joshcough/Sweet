@@ -1,4 +1,4 @@
-package sweet
+package scala.util.parallel
 
 import jsr166y.{RecursiveAction,ForkJoinTask, ForkJoinPool}
 
@@ -23,7 +23,7 @@ object ParallelArray{
 }
 
 case class ParallelArray[A: ClassManifest](data: Array[A]){
-  
+
   val pool:Pool=ParallelArray.DefaultPool
   val seqentialThreshold: Int=ParallelArray.defaultSequentialThreshold
 
