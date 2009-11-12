@@ -1,8 +1,8 @@
 package sweet
 
 
-class SweetSweet extends Sweet {
-  
+class SweetSweet extends Sweet with SweetTestNGAdapter {
+
   test("hello, world"){
     println("hello, world!")
   }
