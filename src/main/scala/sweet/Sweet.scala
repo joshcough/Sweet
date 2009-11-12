@@ -21,6 +21,7 @@ trait Sweet extends Assertions {
   def test(name: String)(f: => Unit) {
     if (tests.map(_.name).contains(name)) println("duplicate test name: " + name)
     tests = tests ::: List(TestCase(name, f _))
+    println("tests=" + tests)
   }
 
   def run(reporter: SweetReporter) {
