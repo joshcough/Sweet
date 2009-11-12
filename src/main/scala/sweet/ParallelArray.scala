@@ -22,8 +22,8 @@ object ParallelArray{
   }
 }
 
-case class ParallelArray[A](data: Array[A]){
-
+case class ParallelArray[A: ClassManifest](data: Array[A]){
+  
   val pool:Pool=ParallelArray.DefaultPool
   val seqentialThreshold: Int=ParallelArray.defaultSequentialThreshold
 
@@ -47,7 +47,7 @@ case class ParallelArray[A](data: Array[A]){
 
   // these three require a new array, and populate mutably.
   // the do not work off mapreduce!
-  def map[B](f: A => B) = {
+   def map[B: ClassManifest](f: A => B) = {
     val sequentialMapper = sequentialMutator[B](new Array[B](data.size), f, t => true) _
     val mapAction = new BinaryRecursiveAction[Array[B]]((l,r)=>l, sequentialMapper)
     ParallelArray(pool.invokeAndGet(mapAction))
@@ -92,4 +92,3 @@ case class ParallelArray[A](data: Array[A]){
     }
   }
 }
- 

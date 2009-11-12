@@ -4,7 +4,6 @@ class SweetProject(info: ProjectInfo) extends DefaultProject(info) with AutoComp
 
   override def managedStyle = ManagedStyle.Maven
   val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots/"
-
   Credentials(Path.userHome / ".ivy2" / ".credentials", log)
 
   override def testFrameworks = super.testFrameworks ++ List(new TestFramework("sweet.SweetFramework"))
