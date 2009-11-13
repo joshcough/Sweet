@@ -3,31 +3,24 @@ package sweet
 import org.scalatools.testing._
 
 class SweetRunner(val classLoader: ClassLoader, loggers: Array[Logger]) extends Runner {
-  def run(testClassName: String, fingerprint: TestFingerprint, args: Array[String]): Array[Event] = {
+  def run(testClassName: String, fingerprint: TestFingerprint, eventHandler: EventHandler, args: Array[String]){
     val testClass = Class.forName(testClassName, true, classLoader).asSubclass(classOf[Sweet])
     val sweet = testClass.newInstance
-    val reporter = new MySweetReporter
+    val reporter = new MySweetReporter(eventHandler)
     sweet.run(reporter)
-    reporter.results.toArray
   }
 
-  class MySweetReporter extends SweetReporter with NotNull{
-    var results = List[Event]()
+  class MySweetReporter(eventHandler: EventHandler) extends SweetReporter with NotNull{
 
     private def logError(msg: String) = loggers.foreach(_ error msg)
     private def logWarn(msg: String) = loggers.foreach(_ warn msg)
     private def logInfo(msg: String) = loggers.foreach(_ info msg)
     private def logDebug(msg: String) = loggers.foreach(_ debug msg)
 
-    def newEvent(tn: String, r: Result, e: Option[Throwable]) = {
-      r match {
-        case Result.Skipped => logInfo("Test Skipped: " + tn)
-        case Result.Failure => logError("Test Failed: " + tn)
-        case Result.Error =>   logError("Test Errored: " + tn)
-        case Result.Success => logInfo("Test Passed: " + tn)
-      }
-      results = results ::: List(new org.scalatools.testing.Event {
+    def newEvent(tn: String, r: Result, e: Option[Throwable]) {
+      eventHandler.handle(new org.scalatools.testing.Event {
         def testName = tn
+        def description = tn
         def result = r
         def error = e getOrElse null
       })
