@@ -3,7 +3,6 @@ package sweet
 import org.scalatools.testing._
 
 class SweetRunner(val classLoader: ClassLoader, loggers: Array[Logger]) extends Runner {
-
   def run(testClassName: String, fingerprint: TestFingerprint, eventHandler: EventHandler, args: Array[String]){
     val testClass = Class.forName(testClassName, true, classLoader).asSubclass(classOf[Sweet])
     val sweet = testClass.newInstance
