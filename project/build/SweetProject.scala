@@ -2,7 +2,8 @@ import sbt._
 class SweetProject(info: ProjectInfo) extends DefaultProject(info) with AutoCompilerPlugins {
 
   override def managedStyle = ManagedStyle.Maven
-  val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots/"
+  //val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots/"
+  val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/releases/"
   Credentials(Path.userHome / ".ivy2" / ".credentials", log)
 
   override def testFrameworks = super.testFrameworks ++ List(new TestFramework("sweet.SweetFramework"))
