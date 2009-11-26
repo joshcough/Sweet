@@ -18,12 +18,19 @@ class SweetRunner(val classLoader: ClassLoader, loggers: Array[Logger]) extends 
       eventHandler.handle(new MyEvent(tn, tn, r, e getOrElse null))
     }
 
+    def logInfo(s:String){ loggers.foreach(_ info s) }
+    def logError(s:String){ loggers.foreach(_ error s) }
+
     def apply(event: SweetEvent) {
       event match {
         case t: TestStarting =>  loggers.foreach(_ info "Test Starting: " + t.testName)
-        case t: TestFailed => newEvent(t.testName, Result.Failure, Some(t.reason))
-        case t: TestErrored => newEvent(t.testName, Result.Failure, Some(t.reason))
-        case t: TestSucceeded => newEvent(t.testName, Result.Success, None)
+        case t: TestErrored =>
+          t.reason.printStackTrace
+          logError("Test Failed:" + t.testName)
+          newEvent(t.testName, Result.Failure, Some(t.reason))
+        case t: TestSucceeded =>
+          logInfo("Test Passed: " + t.testName)
+          newEvent(t.testName, Result.Success, None)
       }
     }
   }

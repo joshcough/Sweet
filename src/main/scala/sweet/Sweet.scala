@@ -11,7 +11,6 @@ trait Sweet extends Assertions {
         f()
         reporter(TestSucceeded(name))
       }catch {
-        case t: SourAssertionException => reporter(TestFailed(name, t))
         case t: Throwable => reporter(TestErrored(name, t))
       }
     }
