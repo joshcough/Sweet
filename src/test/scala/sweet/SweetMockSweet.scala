@@ -1,6 +1,6 @@
 package sweet
 
-class SweetMockSweet extends ConcurrentSweet with SweetMocking with SweetTestNGAdapter{
+class SweetMockSweet extends ParallelSweet with SweetMocking with SweetTestNGAdapter{
 
   trait RandomMethods {
     def takeInt(i:Int)
