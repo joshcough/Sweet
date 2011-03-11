@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="SweetLib">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib_managed/scala_2.9.0-SNAPSHOT/compile" />
+      <root url="file://$PROJECT_DIR$/project/boot/scala-2.9.0-SNAPSHOT/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib_managed/scala_2.9.0-SNAPSHOT/compile" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/project/boot/scala-2.9.0-SNAPSHOT/lib" recursive="false" />
+  </library>
+</component>

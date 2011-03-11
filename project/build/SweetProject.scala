@@ -1,5 +1,8 @@
 import sbt._
+
 class SweetProject(info: ProjectInfo) extends DefaultProject(info) with AutoCompilerPlugins {
+
+  override def parallelExecution = true
 
   override def managedStyle = ManagedStyle.Maven
   //val publishTo = "Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/snapshots/"

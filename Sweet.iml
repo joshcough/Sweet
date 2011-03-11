@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
-    <facet type="Scala" name="Scala">
+    <facet type="scala" name="Scala">
       <configuration>
-        <option name="takeFromSettings" value="true" />
-        <option name="myScalaCompilerJarPath" value="$MODULE_DIR$/project/boot/scala-2.8.0.Beta1-RC2/lib/scala-compiler.jar" />
-        <option name="myScalaSdkJarPath" value="$MODULE_DIR$/project/boot/scala-2.8.0.Beta1-RC2/lib/scala-library.jar" />
+        <option name="compilerLibraryLevel" value="Project" />
+        <option name="compilerLibraryName" value="SweetLib" />
       </configuration>
     </facet>
   </component>
@@ -17,36 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/lib_managed/scala_2.8.0.Beta1-RC2/compile" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/lib_managed/scala_2.8.0.Beta1-RC2/compile" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/project/boot/scala-2.8.0.Beta1-RC2/lib" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/project/boot/scala-2.8.0.Beta1-RC2/lib" recursive="false" />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="SweetLib" level="project" />
   </component>
 </module>
 

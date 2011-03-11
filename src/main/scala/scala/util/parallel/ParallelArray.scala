@@ -1,5 +1,5 @@
 package scala.util.parallel
-
+/*
 import jsr166y.{RecursiveAction,ForkJoinTask, ForkJoinPool}
 
 trait FunctionalRecursiveAction[T] extends RecursiveAction {
@@ -92,3 +92,4 @@ case class ParallelArray[A: ClassManifest](data: Array[A]){
     }
   }
 }
+*/

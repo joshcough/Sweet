@@ -1,8 +1,10 @@
 package sweet
 
+import collection.mutable.ArrayBuffer
+
 trait Sweet extends Assertions {
 
-  private[sweet] var tests = List[TestCase]()
+  private[sweet] var tests = ArrayBuffer[TestCase]()
 
   case class TestCase(name: String, f: () => Unit) {
     def apply(reporter: SweetReporter) {
@@ -19,7 +21,7 @@ trait Sweet extends Assertions {
 
   def test(name: String)(f: => Unit) {
     if (tests.map(_.name).contains(name)) println("duplicate test name: " + name)
-    tests = tests ::: List(TestCase(name, f _))
+    tests += TestCase(name, f _)
   }
 
   def run(reporter: SweetReporter) {

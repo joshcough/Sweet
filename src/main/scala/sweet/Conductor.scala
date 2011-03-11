@@ -39,7 +39,7 @@ class Conductor(logger:SweetLogger){
   protected val threads = new CopyOnWriteArrayList[Thread]()
 
   // the main test thread
-  protected val mainThread = currentThread
+  protected val mainThread = Thread.currentThread
 
   /**
    *
@@ -278,9 +278,9 @@ class Conductor(logger:SweetLogger){
   def signalError(t: Throwable) {
     logger.error(t)
     errors offer t
-    for (t <- threadGroup.getThreads; if (t != currentThread)) {
+    for (t <- threadGroup.getThreads; if (t != Thread.currentThread)) {
       logger.error("signaling error to " + t.getName)
-      val assertionError = new AssertionError(t.getName + " killed by " + currentThread.getName)
+      val assertionError = new AssertionError(t.getName + " killed by " + Thread.currentThread.getName)
       assertionError setStackTrace t.getStackTrace
       t stop assertionError
     }
@@ -360,7 +360,7 @@ class Conductor(logger:SweetLogger){
         if (t > highestTickCountBeingWaitedOn) highestTickCountBeingWaitedOn = t
         while (time < t) {
           try {
-            logger.trace.around(currentThread.getName + " is waiting for time " + t) {
+            logger.trace.around(Thread.currentThread.getName + " is waiting for time " + t) {
               lock.wait()
             }
           } catch {

@@ -678,7 +678,7 @@ object SweetMocking {
       if (counter > 1) {
         name = (name + " " + counter)
       }
-      counter += 1;
+      counter += 1
       name
     }
   }

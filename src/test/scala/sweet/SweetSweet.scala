@@ -1,9 +1,5 @@
 package sweet
 
-
-import org.testng.annotations.{DataProvider, Test}
-
-
 class SweetSweet extends Sweet with SweetTestNGAdapter {
 
   test("hello, world"){
